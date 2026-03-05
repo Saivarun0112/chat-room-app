@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Chat Room</h1>
+
+  <button onclick="createRoom()">Create Room</button>
+  <button onclick="joinRoom()">Join Room</button>
+
+<script>
+function createRoom() {
+  let room = prompt("Enter Room Number (10-99)");
+  if (room >= 10 && room <= 99) {
+    localStorage.setItem("room", room);
+    window.location = "chat.html";
+  } else {
+    alert("Room must be between 10 and 99");
+  }
+}
+
+function joinRoom() {
+  let room = prompt("Enter Room Code");
+  let name = prompt("Enter Your Name");
+  localStorage.setItem("room", room);
+  localStorage.setItem("name", name);
+  window.location = "chat.html";
+}
+</script>
+
+</body>
+</html>
