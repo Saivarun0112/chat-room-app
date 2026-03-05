@@ -1,13 +1,17 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Room Chat</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h2>Room Chat</h2>
+<div style="display:flex; justify-content:space-between; align-items:center;">
+  <h2>Room Chat</h2>
+  <button onclick="deleteChat()">Delete Chat</button>
+</div>
+
 <div id="chatBox"></div>
 
 <input id="msg" placeholder="Type message">
