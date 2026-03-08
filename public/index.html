@@ -1,33 +1,182 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chat App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Chat Room</h1>
+<title>Chat Room</title>
 
-  <button onclick="createRoom()">Create Room</button>
-  <button onclick="joinRoom()">Join Room</button>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#6a5af9,#5ec6ff);
+}
+
+.card{
+
+width:420px;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+.top{
+
+background:linear-gradient(135deg,#ff4d79,#6a5af9);
+padding:60px 30px;
+text-align:center;
+color:white;
+
+}
+
+.top h1{
+margin-top:10px;
+font-size:32px;
+}
+
+.top p{
+opacity:0.8;
+margin-top:8px;
+}
+
+.bottom{
+
+background:#140033;
+padding:35px;
+
+}
+
+.btn{
+
+display:flex;
+align-items:center;
+gap:15px;
+padding:18px;
+border-radius:18px;
+margin-bottom:20px;
+cursor:pointer;
+color:white;
+font-weight:bold;
+
+}
+
+.create{
+
+background:linear-gradient(90deg,#ff4d79,#ffb347);
+
+}
+
+.join{
+
+background:linear-gradient(90deg,#4facfe,#7f5cff);
+
+}
+
+.btn span{
+
+font-size:28px;
+
+}
+
+input{
+
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-top:10px;
+margin-bottom:10px;
+
+}
+
+button{
+
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:white;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="top">
+
+<div style="font-size:40px">💬</div>
+<h1>Chat Room</h1>
+<p>Create or join a room to start chatting</p>
+
+</div>
+
+<div class="bottom">
+
+<div class="btn create" onclick="showCreate()">
+<span>🚀</span>
+Create Room
+</div>
+
+<div class="btn join" onclick="showJoin()">
+<span>🔑</span>
+Join Room
+</div>
+
+<div id="form" style="display:none">
+
+<input id="name" placeholder="Enter your name">
+<input id="room" placeholder="Enter room code">
+
+<button onclick="joinRoom()">Enter Chat</button>
+
+</div>
+
+</div>
+
+</div>
 
 <script>
-function createRoom() {
-  let room = prompt("Enter Room Number (10-99)");
-  if (room >= 10 && room <= 99) {
-    localStorage.setItem("room", room);
-    window.location = "chat.html";
-  } else {
-    alert("Room must be between 10 and 99");
-  }
+
+function showCreate(){
+document.getElementById("form").style.display="block"
 }
 
-function joinRoom() {
-  let room = prompt("Enter Room Code");
-  let name = prompt("Enter Your Name");
-  localStorage.setItem("room", room);
-  localStorage.setItem("name", name);
-  window.location = "chat.html";
+function showJoin(){
+document.getElementById("form").style.display="block"
 }
+
+function joinRoom(){
+
+const name=document.getElementById("name").value
+const room=document.getElementById("room").value
+
+if(name===""||room===""){
+alert("Enter name and room")
+return
+}
+
+localStorage.setItem("name",name)
+localStorage.setItem("room",room)
+
+window.location="chat.html"
+
+}
+
 </script>
 
 </body>
