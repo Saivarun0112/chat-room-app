@@ -9,7 +9,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
 
 body{
@@ -21,7 +21,6 @@ background:linear-gradient(135deg,#6a5af9,#5ec6ff);
 }
 
 .card{
-
 width:420px;
 border-radius:30px;
 overflow:hidden;
@@ -29,12 +28,10 @@ box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
 
 .top{
-
 background:linear-gradient(135deg,#ff4d79,#6a5af9);
 padding:60px 30px;
 text-align:center;
 color:white;
-
 }
 
 .top h1{
@@ -48,14 +45,11 @@ margin-top:8px;
 }
 
 .bottom{
-
 background:#140033;
 padding:35px;
-
 }
 
 .btn{
-
 display:flex;
 align-items:center;
 gap:15px;
@@ -65,40 +59,26 @@ margin-bottom:20px;
 cursor:pointer;
 color:white;
 font-weight:bold;
-
 }
 
 .create{
-
 background:linear-gradient(90deg,#ff4d79,#ffb347);
-
 }
 
 .join{
-
 background:linear-gradient(90deg,#4facfe,#7f5cff);
-
-}
-
-.btn span{
-
-font-size:28px;
-
 }
 
 input{
-
 width:100%;
 padding:12px;
 border-radius:10px;
 border:none;
 margin-top:10px;
 margin-bottom:10px;
-
 }
 
 button{
-
 width:100%;
 padding:12px;
 border:none;
@@ -106,7 +86,6 @@ border-radius:10px;
 background:white;
 font-weight:bold;
 cursor:pointer;
-
 }
 
 </style>
@@ -127,19 +106,18 @@ cursor:pointer;
 
 <div class="bottom">
 
-<div class="btn create" onclick="showCreate()">
-<span>🚀</span>
-Create Room
+<div class="btn create" onclick="showForm()">
+🚀 Create Room
 </div>
 
-<div class="btn join" onclick="showJoin()">
-<span>🔑</span>
-Join Room
+<div class="btn join" onclick="showForm()">
+🔑 Join Room
 </div>
 
 <div id="form" style="display:none">
 
 <input id="name" placeholder="Enter your name">
+
 <input id="room" placeholder="Enter room code">
 
 <button onclick="joinRoom()">Enter Chat</button>
@@ -152,11 +130,7 @@ Join Room
 
 <script>
 
-function showCreate(){
-document.getElementById("form").style.display="block"
-}
-
-function showJoin(){
+function showForm(){
 document.getElementById("form").style.display="block"
 }
 
